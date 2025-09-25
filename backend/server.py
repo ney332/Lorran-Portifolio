@@ -1,75 +1,100 @@
-from fastapi import FastAPI, APIRouter
-from dotenv import load_dotenv
-from starlette.middleware.cors import CORSMiddleware
-from motor.motor_asyncio import AsyncIOMotorClient
-import os
-import logging
-from pathlib import Path
-from pydantic import BaseModel, Field
-from typing import List
-import uuid
-from datetime import datetime
+// server.js
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import { MongoClient, ObjectId } from "mongodb";
+import { v4 as uuidv4 } from "uuid";
 
+// Carregar variáveis do .env
+dotenv.config();
 
-ROOT_DIR = Path(__file__).parent
-load_dotenv(ROOT_DIR / '.env')
+const app = express();
+app.use(express.json());
 
-# MongoDB connection
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
+// Configuração do CORS
+const allowedOrigins = process.env.CORS_ORIGINS
+  ? process.env.CORS_ORIGINS.split(",")
+  : ["*"];
 
-# Create the main app without a prefix
-app = FastAPI()
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
 
-# Create a router with the /api prefix
-api_router = APIRouter(prefix="/api")
+// Conexão com o MongoDB
+const mongoUrl = process.env.MONGO_URL;
+const client = new MongoClient(mongoUrl);
+let db;
 
+(async () => {
+  try {
+    await client.connect();
+    db = client.db(process.env.DB_NAME);
+    console.log("✅ Conectado ao MongoDB");
+  } catch (err) {
+    console.error("Erro ao conectar ao MongoDB:", err);
+    process.exit(1);
+  }
+})();
 
-# Define Models
-class StatusCheck(BaseModel):
-    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    client_name: str
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+// Rotas da API
+const router = express.Router();
 
-class StatusCheckCreate(BaseModel):
-    client_name: str
+// Rota raiz
+router.get("/", (req, res) => {
+  res.json({ message: "Hello World" });
+});
 
-# Add your routes to the router instead of directly to app
-@api_router.get("/")
-async def root():
-    return {"message": "Hello World"}
+// Modelo básico (StatusCheck)
+function createStatusCheck(data) {
+  return {
+    id: uuidv4(),
+    client_name: data.client_name,
+    timestamp: new Date(),
+  };
+}
 
-@api_router.post("/status", response_model=StatusCheck)
-async def create_status_check(input: StatusCheckCreate):
-    status_dict = input.dict()
-    status_obj = StatusCheck(**status_dict)
-    _ = await db.status_checks.insert_one(status_obj.dict())
-    return status_obj
+// POST /api/status
+router.post("/status", async (req, res) => {
+  try {
+    const statusObj = createStatusCheck(req.body);
+    await db.collection("status_checks").insertOne(statusObj);
+    res.status(201).json(statusObj);
+  } catch (err) {
+    console.error("Erro ao criar status:", err);
+    res.status(500).json({ error: "Erro interno do servidor" });
+  }
+});
 
-@api_router.get("/status", response_model=List[StatusCheck])
-async def get_status_checks():
-    status_checks = await db.status_checks.find().to_list(1000)
-    return [StatusCheck(**status_check) for status_check in status_checks]
+// GET /api/status
+router.get("/status", async (req, res) => {
+  try {
+    const statusChecks = await db
+      .collection("status_checks")
+      .find()
+      .limit(1000)
+      .toArray();
+    res.json(statusChecks);
+  } catch (err) {
+    console.error("Erro ao buscar status:", err);
+    res.status(500).json({ error: "Erro interno do servidor" });
+  }
+});
 
-# Include the router in the main app
-app.include_router(api_router)
+app.use("/api", router);
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+// Encerrar conexão ao fechar
+process.on("SIGINT", async () => {
+  console.log("🛑 Encerrando servidor...");
+  await client.close();
+  process.exit(0);
+});
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
+// Iniciar servidor
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
+});
 
-@app.on_event("shutdown")
-async def shutdown_db_client():
-    client.close()
