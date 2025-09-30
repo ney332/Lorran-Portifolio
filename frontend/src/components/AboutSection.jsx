@@ -10,10 +10,10 @@ const AboutSection = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
-              About Me
+              Sobre Mim
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Passionate developer with expertise in mobile and multiplatform solutions
+              apaixonado por tecnologia e desenvolvimento de Mobile.
             </p>
           </div>
 
@@ -21,21 +21,16 @@ const AboutSection = () => {
             {/* Left Column - Text */}
             <div className="space-y-6">
               <p className="text-lg text-gray-300 leading-relaxed">
-                Hi! I'm <span className="text-purple-400 font-semibold">Lorran Ney</span>, 
-                a passionate mobile and multiplatform developer with over 4 years of experience 
-                creating innovative digital solutions. I specialize in building exceptional user 
-                experiences across iOS, Android, and web platforms.
+                Olá me chamo <span className="text-purple-400 font-semibold">Lorran</span>, 
+                um estudante de Sistemas de Informação, desenvolvedor mobile e multiplaforma fascinado pelo mundo moba, com 3 anos de imersão em desenvolvimento. gosto demais do processo de criação da experiência de usuário principalmente no Ecossistema iOS.
               </p>
               
               <p className="text-lg text-gray-300 leading-relaxed">
-                My journey in technology started with a curiosity about how mobile apps work, 
-                which led me to master Swift for iOS development and expand into full-stack 
-                web development with JavaScript, PHP, and modern databases.
+                Minha jornada na tecnologia começou logo criança quando ganhei meu primeiro notebook, e com os primeiros acessos á internet me vinha a curiosidade de como funcionava tudo, por que eu precisava de mais memória? por que o tor browser escondia o IP, oque era IP?! curiosidades que me pesquisar cada vez mais sobre IoT e a cada descoberta é incrível! com o tempo fiz um curso de informática onde conheci conceitos basicos de web, sistemas e manutenção de hardwares.
               </p>
 
               <p className="text-lg text-gray-300 leading-relaxed">
-                When I'm not coding, I enjoy exploring new technologies, contributing to 
-                open-source projects, and sharing knowledge with the developer community.
+               Nos raros momentos que não com os olhos em uma linha de codigo, provavelmente estarei em algum estudo sobre uma nova tecnologia, um novo método ou um conhecimento aleatória que provavelmente nunca usarei.
               </p>
             </div>
 
@@ -48,8 +43,8 @@ const AboutSection = () => {
                       <User className="text-purple-400" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-white mb-2">Experience</h3>
-                      <p className="text-gray-400">4+ years of professional development</p>
+                      <h3 className="text-xl font-semibold text-white mb-2">Experiência</h3>
+                      <p className="text-gray-400">3 anos como desenvolvedor</p>
                     </div>
                   </div>
                 </CardContent>
@@ -62,8 +57,8 @@ const AboutSection = () => {
                       <Target className="text-purple-400" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-white mb-2">Focus</h3>
-                      <p className="text-gray-400">Mobile & Multiplatform Solutions</p>
+                      <h3 className="text-xl font-semibold text-white mb-2">Foco</h3>
+                      <p className="text-gray-400">Mobile & Multiplataforma </p>
                     </div>
                   </div>
                 </CardContent>
@@ -76,8 +71,8 @@ const AboutSection = () => {
                       <Heart className="text-purple-400" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-white mb-2">Passion</h3>
-                      <p className="text-gray-400">Creating exceptional user experiences</p>
+                      <h3 className="text-xl font-semibold text-white mb-2">paixão</h3>
+                      <p className="text-gray-400">UX/UI</p>
                     </div>
                   </div>
                 </CardContent>
