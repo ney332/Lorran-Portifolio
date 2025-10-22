@@ -44,41 +44,41 @@ export const mockProjects = [
 export const mockExperience = [
   {
     id: 1,
-    company: "TechCorp Solutions",
-    position: "Senior Mobile Developer",
+    company: "Exército brasileiro",
+    position: "Aux TI",
     duration: "2022 - Present",
-    location: "Remote",
-    description: "Lead mobile application development using Swift and React Native. Architected scalable solutions serving 100K+ users and mentored junior developers.",
-    technologies: ["Swift", "React Native", "JavaScript", "Firebase", "AWS"]
+    location: "Rio de ja",
+    description: "Resolução de problemas relacionados a segurança organização e requisição de documentos.",
+    technologies: ["Pacote Ofice", "OWASP"]
   },
   {
     id: 2,
-    company: "StartupHub Inc",
-    position: "Full-Stack Developer",
-    duration: "2020 - 2022",
-    location: "São Paulo, Brazil",
-    description: "Developed end-to-end web applications using modern JavaScript frameworks. Built RESTful APIs and managed PostgreSQL databases for multiple client projects.",
-    technologies: ["JavaScript", "React", "Node.js", "PostgreSQL", "Docker"]
+    company: "Desenvolvedor Web",
+    position: "Autônomo",
+    duration: "2023 - 2024",
+    location: "Remoto",
+    description: "Atuação em diversos projetos freelancers em web projetos.",
+    technologies: ["JavaScript", "React", "Node.js", "PostgreSQL"]
   },
   {
     id: 3,
-    company: "Digital Agency Pro",
-    position: "Web Developer",
-    duration: "2019 - 2020",
-    location: "Rio de Janeiro, Brazil",
-    description: "Created responsive websites and web applications using PHP and JavaScript. Collaborated with design teams to implement pixel-perfect user interfaces.",
-    technologies: ["PHP", "JavaScript", "MySQL", "WordPress", "CSS3"]
+    company: "Marketing Digital",
+    position: "Autônomo",
+    duration: "2019 - 2022",
+    location: "Remoto",
+    description: "Criação de criativos, organização de catálogo virtual, suporte e contato P2P ao cliente.",
+    technologies: ["Goosle ADS", "Facebook ADS", "Figma", "WordPress"]
   }
 ];
 
 export const mockCourses = [
   {
     id: 1,
-    title: "iOS Development with Swift",
-    institution: "Apple Developer Academy",
-    year: "2023",
+    title: "Swift Foundation Course",
+    institution: "Apple Developer Academy - PUC-RJ",
+    year: "2025",
     type: "Certificate",
-    description: "Advanced iOS development course covering SwiftUI, Core Data, and App Store optimization."
+    description: "Basic iOS development course covering SwiftUI, Core Data, and App Store optimization."
   },
   {
     id: 2,
@@ -90,11 +90,11 @@ export const mockCourses = [
   },
   {
     id: 3,
-    title: "Computer Science Degree",
-    institution: "University of São Paulo",
-    year: "2019",
+    title: "Information System",
+    institution: "Universidade Veiga de Almeida",
+    year: "2028.2",
     type: "Degree",
-    description: "Bachelor's degree focusing on software engineering, algorithms, and database systems."
+    description: "Bachelor's degree."
   },
   {
     id: 4,
@@ -107,7 +107,7 @@ export const mockCourses = [
   {
     id: 5,
     title: "UX/UI Design with Figma",
-    institution: "Design Academy",
+    institution: "Udemy",
     year: "2022",
     type: "Certificate",
     description: "User experience design principles and advanced Figma prototyping techniques."
@@ -115,11 +115,10 @@ export const mockCourses = [
 ];
 
 export const mockSkills = [
-  { name: "Swift", icon: "Code", proficiency: 90, category: "Mobile" },
-  { name: "JavaScript", icon: "Code2", proficiency: 95, category: "Web" },
-  { name: "PostgreSQL", icon: "Database", proficiency: 85, category: "Database" },
-  { name: "PHP", icon: "Code", proficiency: 80, category: "Backend" },
-  { name: "SQL", icon: "Database", proficiency: 88, category: "Database" },
+  { name: "Swift", icon: "Code", proficiency: 60, category: "Mobile" },
+  { name: "JavaScript", icon: "Code2", proficiency: 45, category: "Web" },
+  { name: "PHP", icon: "Code", proficiency: 40, category: "Backend" },
+  { name: "SQL", icon: "Database", proficiency: 40, category: "Database" },
   { name: "Figma", icon: "Figma", proficiency: 75, category: "Design" },
   { name: "Microsoft Office", icon: "FileText", proficiency: 90, category: "Productivity" },
   { name: "React", icon: "Code2", proficiency: 92, category: "Web" },
