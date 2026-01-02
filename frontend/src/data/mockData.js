@@ -6,7 +6,7 @@ export const mockProjects = [
     title: "HikingTrip iOS App",
     description: "Aplicativo IOS, desenvolvido como projeto final do curso Swift Foundation 2025.2. Uma ideia nascida a partir de uma necessidade pessoal como um apaixonado por trilhas e viagens.",
     technologies: ["Swift", "SwiftUI", "Core Location", "MapKit"],
-    image: img/hikkingImg.png,
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&h=400&fit=crop",
     githubUrl: "https://github.com/ney332/HikingTrip2.git",
     liveUrl: null,
     featured: true
