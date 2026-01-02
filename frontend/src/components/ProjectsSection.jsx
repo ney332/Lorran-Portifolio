@@ -13,7 +13,7 @@ const ProjectsSection = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
-              Featured Projects
+              Projetos
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               A collection of mobile and web applications showcasing my technical expertise

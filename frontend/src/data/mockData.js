@@ -1,12 +1,14 @@
+
+
 export const mockProjects = [
   {
     id: 1,
-    title: "TaskMaster iOS App",
-    description: "A comprehensive task management application built with Swift and SwiftUI, featuring real-time synchronization and intuitive gesture-based interactions.",
-    technologies: ["Swift", "SwiftUI", "Core Data", "CloudKit"],
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
-    githubUrl: "https://github.com/lorranney/taskmaster",
-    liveUrl: "https://apps.apple.com/app/taskmaster",
+    title: "HikingTrip iOS App",
+    description: "Aplicativo IOS, desenvolvido como projeto final do curso Swift Foundation 2025.2. Uma ideia nascida a partir de uma necessidade pessoal como um apaixonado por trilhas e viagens.",
+    technologies: ["Swift", "SwiftUI", "Core Location", "MapKit"],
+    image: img/hikkingImg.png,
+    githubUrl: "https://github.com/ney332/HikingTrip2.git",
+    liveUrl: null,
     featured: true
   },
   {
@@ -15,8 +17,7 @@ export const mockProjects = [
     description: "Full-stack e-commerce solution with React frontend and Node.js backend, integrated with PostgreSQL database and Stripe payments.",
     technologies: ["JavaScript", "React", "Node.js", "PostgreSQL"],
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    githubUrl: "https://github.com/lorranney/ecommerce-platform",
-    liveUrl: "https://ecommerce-demo.lorranney.dev",
+    githubUrl: "",
     featured: true
   },
   {
